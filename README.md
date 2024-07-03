@@ -161,7 +161,7 @@ KADIKAZI integrates with trusted payment gateways to ensure secure and convenien
 
 - *Mpesa*: A popular mobile money transfer service, providing an easy way to pay directly from your mobile phone.
 
-<img src="https://github.com/Alloys9/SK/assets/104967102/f72ef9b8-10a3-4e3c-8cb5-b6dfdbd9ab5b" alt="Mpesa" width="200">
+
 
 ---
 
