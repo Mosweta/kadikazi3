@@ -102,7 +102,7 @@ Double-click the connection in the "MySQL Connections" area to connect to your M
 
 5. *Install Dependencies*:
    - Run:
-   cd C:\xampp\htdocs\carwash\carwash
+   cd C:\xampp\htdocs\carwash\carwash ,then run:
 npm install
 
    
