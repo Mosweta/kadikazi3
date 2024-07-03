@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 import { FaEnvelope, FaUser } from "react-icons/fa";
 import { Form, Button, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [userValues, setUserValues] = useState({
@@ -15,6 +16,7 @@ const Profile = () => {
     NewPassword:'',
     RepeatPassword:'',
   });
+  const navigate= useNavigate()
   const [userId, setUserId] = useState('');
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
@@ -147,7 +149,9 @@ const Profile = () => {
       .then(res => {
         console.log(res);
         setSuccess(true);
+
         setMessage('Admin password updated successfully');
+        navigate('/login')
       })
       .catch(err => {
         console.log(err);
