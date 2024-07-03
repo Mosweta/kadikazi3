@@ -2,7 +2,7 @@
  Kadikazi is a car wash management system that caters to the needs of its users.
  ### Welcome to KADIKAZI 🦟
 
-<img src="https://user-images.githubusercontent.com/987654321/your-banner-image.gif" alt="Skeeto Banner" width="400">
+
 
 *KADIKAZI* is a cutting-edge car wash management web application built using Javascript(React) and MySQL. It offers a seamless and secure platform for users to book appointments in the car wash and make secure payments for the services offered.
 
@@ -124,7 +124,7 @@ npm install
 - *User-Friendly Onboarding*: Create an account using  email. 
 - *User Profiles*: Edit your profile picture, bio, username, or password anytime.
 
-<img src="https://github.com/Alloys9/SK/assets/104967102/a6100257-040f-49f9-a100-f221de0ff540" alt="App Features" width="300">
+
 
 ---
 
@@ -132,7 +132,7 @@ npm install
 
 KADIKAZI aims to encourage more students to become entrepreneurs by leveraging technology. The app provides a robust platform to kickstart their business ventures and reach a wider audience.
 
-<img src="https://github.com/Alloys9/SK/assets/104967102/50ea20af-a8c7-4b7c-a209-23598496956d" alt="Entrepreneurship" width="300">
+
 
 ---
 
@@ -144,7 +144,7 @@ KADIKAZI aims to encourage more students to become entrepreneurs by leveraging t
 ### 🔄 Database
 
 - *MySQL Workbench*: KADIKAZI uses MySQl as its backend service, providing a reliable and scalable database solution.
-<img src="https://github.com/Alloys9/SK/assets/104967102/d9ababaa-6c1b-415c-881e-af209417cb89" alt="Firebase" width="300">
+
 ---
 
 ### 📱 User Experience
@@ -157,7 +157,7 @@ KADIKAZI aims to encourage more students to become entrepreneurs by leveraging t
 
 KADIKAZI integrates with trusted payment gateways to ensure secure and convenient transactions:
 
-<img src="https://github.com/Alloys9/SK/assets/104967102/5cd6a465-6256-4365-a9ea-51e2efa614f5" alt="Paystack" width="200">
+
 
 - *Mpesa*: A popular mobile money transfer service, providing an easy way to pay directly from your mobile phone.
 
