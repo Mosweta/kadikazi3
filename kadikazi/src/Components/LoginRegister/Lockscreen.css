@@ -1,0 +1,107 @@
+
+.lockscreen{
+    position: relative;
+    width: 50%;
+    height: 100% !important;
+    background: transparent;
+    backdrop-filter: blur(200px);
+    color: #0b0505;
+    display: flex;
+    align-items: center;
+    
+    
+    transition: height .2s ease;
+}
+.lockscreen .myHeading{
+    top: 60px;
+}
+.lockscreen .picture{
+    margin-left: 500px;
+}
+.lockscreen .userName{
+    top:20px;
+    margin-right: 200px;
+    color:#fff;
+
+}
+
+.lockscreen .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+
+form .myHeading{
+    margin-left: -200px;
+    color: #fff;
+}
+form h1{
+    font-size: 36px;
+    text-align: center;
+}
+form .myInput-box{
+    position: relative;
+    width: 30% ;
+    
+    margin-left: 400px;
+    top: 30px;
+    
+    
+    
+    
+}
+.myInput-box input{
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border:2px solid rgba(255,255,255, .1);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #1c1b1b;
+    padding: 20px 0px 20px 20px;
+}
+.myInput-box input::placeholder{
+color: #1c1b1b;
+}
+.myInput-box .icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+}
+
+form .myButton{
+    width: 320px !important ;
+    height: 45px;
+    background: #fff;
+    margin: 60px;
+    margin-left: 400px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor:pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
+.lockscreen .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+h1{
+    position: relative;
+    left: 150px;
+    top: 50px; 
+    text-decoration: #fff; 
+}
+p{
+    position: inherit;
+    left: 450px;
+    top: 180px;
+}

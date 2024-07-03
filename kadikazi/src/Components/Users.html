@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    </head>
+    <body>
+        <div class="p-5">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+<script src="/CarWashBackEnd/Server.js">
+    $(document).ready(function() {
+  // Initialize DataTable
+  var table = $('#example').DataTable({
+      "processing": true, // Show processing indicator
+      "serverSide": false, // Client-side processing (false for simplicity, change to true for server-side)
+      "ajax": {
+          "url": "http://localhost:8081/getAllAdmins", // Replace with your backend endpoint
+          "dataSrc": "" // Data source
+      },
+      "columns": [
+          { "data": "AdminId" },
+          { "data": "fName" },
+          { "data": "lName" },
+          { "data": "Address" },
+          { "data": "Telephone" },
+          { "data": "Gender" },
+          { "data": "EmailAddress" },
+          // Add more columns as needed
+          // Example for actions column:
+          {
+              "data": null,
+              "render": function(data, type, row) {
+                  return `<a href="/editAdmin/${data.AdminId}" class='btn btn-sm btn-primary mx-2'>Edit</a>
+                          <button onclick="handleDelete(${data.AdminId})" class='btn btn-sm btn-danger'>Delete</button>`;
+              }
+          }
+      ],
+      "dom": 'lBfrtip', // Layout of elements
+      "buttons": [ // Optional buttons for DataTable
+          'copy', 'csv', 'excel', 'pdf', 'print'
+      ]
+  });
+});
+</script>
+     
+    </body>
+    
+</html>
