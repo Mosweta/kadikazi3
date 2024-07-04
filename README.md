@@ -9,9 +9,9 @@
 
 ### 🚀 Getting Started
 
-To clone the Skeeto repository and get the project running on your machine, follow these detailed steps:
+To clone the Kadikazi repository and get the project running on your machine, follow these detailed steps:
 
-1. /*Clone the Repository*:
+1. *Clone the Repository*:
    - Open your terminal or command prompt and run the following command to clone the Skeeto repository:
    bash
    git clone https://github.com/Mosweta/kadikazi3.git
