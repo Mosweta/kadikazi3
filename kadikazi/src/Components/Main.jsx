@@ -69,7 +69,6 @@ function Main() {
                               <li><a href="http://localhost:3000/">Home</a></li>
                               <li><a href="http://localhost:3000/about">About</a></li>
                               <li><a href="http://localhost:3000/contact">Contact</a></li>
-                              <li><a href="http://localhost:3000/lockscreen">Lockscreen</a></li>
                               <img src={logo} alt="user" className='user-pic'  />
                               <li color="#fff" ><a href="http://localhost:3000/login">Login</a></li>
                             </ul>

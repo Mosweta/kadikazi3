@@ -579,7 +579,7 @@ app.get('/readAdmin/:id', (req,res)=>{
 //   })
 // })
 app.put('/updateStaff/:id', (req,res)=>{
-  const sql="Update staff SET `fName`=?, `lName`=?, `Address`=?, `Telephone`=?, `Gender`=?, `Specialty`=?, `EmailAddress`=? WHERE StaffId=?"
+  const sql="Update staff SET `fName`=?, `lName`=?, `Address`=?, `Telephone`=?, `Gender`=?, `Specialty`=?, `EmailAddress`=? WHERE `StaffId`=?"
   const id= req.params.id;
   db.query(sql,[req.body.userId, req.body.fName, req.body.lName, req.body.Address, req.body.Telephone, req.body.Gender, req.body.Specialty, req.body.EmailAddress, id], (err,result)=>{
     if (err)return res.json({Message: "Internal Server Error"});
@@ -949,6 +949,30 @@ app.delete('/deleteAdmin/:id', (req, res) => {
     if(!err)
       {
       res.status(200).json({success:'user record deleted successfully'});
+    } else{
+console.log(err);
+    };
+  });
+ 
+});
+app.delete('/deleteClient/:id', (req, res) => {
+  
+  db.query("DELETE FROM client WHERE clientId ='"+req.params.id+"'",(err, result)=>{
+    if(!err)
+      {
+      res.status(200).json({success:'client record deleted successfully'});
+    } else{
+console.log(err);
+    };
+  });
+ 
+});
+app.delete('/deleteStaff/:id', (req, res) => {
+  
+  db.query("DELETE FROM staff WHERE StaffId ='"+req.params.id+"'",(err, result)=>{
+    if(!err)
+      {
+      res.status(200).json({success:'staff record deleted successfully'});
     } else{
 console.log(err);
     };
