@@ -58,6 +58,9 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    Access the web application through [localhost:3000](http://localhost:3000).
 
 ---
+### 🚀 Our Aim
+
+Kadikazi aims to improve operational efficiency, financial management, and customer satisfaction in car wash businesses.
 
 ### 🌟 Key Features
 
@@ -68,10 +71,6 @@ To clone the Kadikazi repository and get the project running on your machine, fo
 - **User-Friendly Onboarding**: Create an account using email for hassle-free access.
   
 - **User Profiles**: Edit profile details such as picture, bio, username, or password anytime.
-
-### 🚀 Our Aim
-
-Kadikazi aims to improve operational efficiency, financial management, and customer satisfaction in car wash businesses.
 
 ### 🔒 Security Features
 
