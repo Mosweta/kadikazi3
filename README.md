@@ -18,6 +18,7 @@ cd kadikazi3
 npm install-dependencies.js to install all necessary dependencies from your requirements.txt file
 
 3. *Run the App*:
+  - Run the following command to run the app:
 powershell
 npm install nodemon to install all necessary dependencies
 npm start to run the main project folder.
@@ -93,7 +94,7 @@ Double-click the connection in the "MySQL Connections" area to connect to your M
 
 5. *Install Dependencies*:
    - Run:
-   cd C:\xampp\htdocs\carwash\carwash ,then run:
+   cd C:"your file path" ,then run:
 npm install
 
    
