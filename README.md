@@ -109,34 +109,34 @@ npm install
 ---
 
 **🌟 Key Features**
-Efficient Booking Services: Easily book a session and have your car washed with the option for pickup after washing.
-Secure Payment Transactions: Enjoy top-notch security with payment services and mandatory email verification for account registration.
-User-Friendly Onboarding: Create an account using email for hassle-free access.
-User Profiles: Edit profile details such as picture, bio, username, or password anytime.
+*Efficient Booking Services*: Easily book a session and have your car washed with the option for pickup after washing.
+*Secure Payment Transactions*: Enjoy top-notch security with payment services and mandatory email verification for account registration.
+*User-Friendly Onboarding*: Create an account using email for hassle-free access.
+*User Profiles*: Edit profile details such as picture, bio, username, or password anytime.
 
 **🚀 Simplifying Carwash Systems**
-Kadikazi aims to empower entrepreneurs in this field by leveraging technology. It provides a robust platform to kickstart business ventures and reach a wider audience.
+*Kadikazi aims to empower entrepreneurs in this field by leveraging technology. It provides a robust platform to kickstart business ventures and reach a wider audience.*
 
 **🔒 Security Features**
-Email Verification: Protect your account with mandatory email verification.
+*Email Verification: Protect your account with mandatory email verification.*
 
 **🔄 Database**
-MySQL Workbench: Kadikazi uses MySQL as its backend database, providing a reliable and scalable solution.
+*MySQL Workbench: Kadikazi uses MySQL as its backend database, providing a reliable and scalable solution.*
 
 **📱 User Experience**
-Seamless Account Creation: Choose to continue with email for a hassle-free experience or use email for manual verification.
-Profile Management: Update your profile details anytime to keep your information current.
-Intuitive Interaction: The application is designed for intuitive navigation and usability.
+*Seamless Account Creation*: Choose to continue with email for a hassle-free experience or use email for manual verification.
+*Profile Management*: Update your profile details anytime to keep your information current.
+*Intuitive Interaction*: The application is designed for intuitive navigation and usability.
 
 **💳 Payment Methods**
-Kadikazi integrates with trusted payment gateways to ensure secure and convenient transactions, including:
+*Kadikazi integrates with trusted payment gateways to ensure secure and convenient transactions, including:*
 *Mpesa*: Direct mobile payment integration for seamless transactions.
 
 **Join the Kadikazi Community!**
-Be a part of our growing community and journey in connecting businesses with clients.
+*Be a part of our growing community and journey in connecting businesses with clients.*
 
 **📣 Support Us**
-Fork the repository.
-Clone the repository locally.
-Use and modify the code to enhance the project.
-Contribute back by pushing changes and improvements.
+*Fork the repository*.
+*Clone the repository locally*.
+*Use and modify the code to enhance the project*.
+*Contribute back by pushing changes and improvements*.
