@@ -20,7 +20,8 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    
 3. **Run the App**:
    ```bash
-   npm start app.js
+   npm start 
+   nodemonserver.js
    ```
 
 ### Detailed Steps with Links and Commands:
@@ -43,12 +44,14 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    ```
 
 5. **Install Dependencies**:
-   cd kadikazi
+  
    ```bash
-   node install-dependencies.js
+    cd kadikazi
+    node install-dependencies.js
    ```
-   cd carWashBackEnd
+   
    ```bash
+   cd carWashBackEnd
    node install-dependencies.js
    ```
 
@@ -57,12 +60,14 @@ To clone the Kadikazi repository and get the project running on your machine, fo
 
 8. **Run the App**:
    - Ensure your environment is set up correctly, then run:
-     cd kadikazi
+     
    ```bash
+   cd kadikazi
    npm start app.js
    ```
-   cd carWashBackEnd
+   
    ```bash
+   cd carWashBackEnd
    nodemon server.js
    ```
    
