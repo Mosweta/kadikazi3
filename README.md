@@ -15,12 +15,12 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    
 2. **Install Dependencies**:
    ```bash
-   npm install
+   node install-dependencies.js
    ```
    
 3. **Run the App**:
    ```bash
-   npm start
+   npm start app.js
    ```
 
 ### Detailed Steps with Links and Commands:
