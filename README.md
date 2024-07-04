@@ -1,6 +1,6 @@
 # Kadikazi: Car Wash Management System
 
-### Welcome to KADIKAZI 🦟
+### Welcome to KADIKAZI 🚗🚿
 
 Kadikazi is a cutting-edge car wash management web application built using Javascript (React) and MySQL. Kadikazi offers a seamless and secure platform for users to book appointments at the car wash and make secure payments for the services offered.
 
