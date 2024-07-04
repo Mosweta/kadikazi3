@@ -109,10 +109,10 @@ npm install
 ---
 
 **🌟 Key Features**
-*Efficient Booking Services*: Easily book a session and have your car washed with the option for pickup after washing.
-*Secure Payment Transactions*: Enjoy top-notch security with payment services and mandatory email verification for account registration.
-*User-Friendly Onboarding*: Create an account using email for hassle-free access.
-*User Profiles*: Edit profile details such as picture, bio, username, or password anytime.
+1.*Efficient Booking Services*: Easily book a session and have your car washed with the option for pickup after washing.
+2.*Secure Payment Transactions*: Enjoy top-notch security with payment services and mandatory email verification for account registration.
+3.*User-Friendly Onboarding*: Create an account using email for hassle-free access.
+-*User Profiles*: Edit profile details such as picture, bio, username, or password anytime.
 
 **🚀 Simplifying Carwash Systems**
 *Kadikazi aims to empower entrepreneurs in this field by leveraging technology. It provides a robust platform to kickstart business ventures and reach a wider audience.*
