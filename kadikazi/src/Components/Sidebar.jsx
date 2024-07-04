@@ -36,7 +36,7 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-            <Link to={'/editProfile'} >
+            <Link to={'/adminProfile'} >
                 
                 <BsFillGearFill className='icon'/>Profile
            </Link>

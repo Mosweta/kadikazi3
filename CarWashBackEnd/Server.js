@@ -449,8 +449,8 @@ app.put('/updateAdminPassword', (req, res) => {
       }
 
       console.log("Password match successful");
-
-      bcrypt.hash(req.body.Password.toString(), salt, (err, hash) => {
+      const salt = 10;
+      bcrypt.hash(req.body.NewPassword.toString(), salt, (err, hash) => {
         if (err) {
             console.error('Error during hashing Password:', err);
             return res.status(500).json({ Error: "Internal Server Error" });
@@ -471,7 +471,7 @@ const sql2='UPDATE users SET `Password`=? WHERE `userId`=?'
 
            
 
-            console.log('Registration Successful:', req.body.EmailAddress);
+            console.log('Password updated Successfully');
             return res.json({ Status: 'Success' });
         });
     });
