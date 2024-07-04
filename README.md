@@ -20,7 +20,7 @@ npm install-dependencies.js to install all necessary dependencies from your requ
 3. *Run the App*:
   - Run the following command to run the app:
 powershell
-npm install nodemon to install all necessary dependencies
+npm install nodemon to install all necessary dependencies and then
 npm start to run the main project folder.
    
    
