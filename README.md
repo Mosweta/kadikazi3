@@ -1,8 +1,7 @@
 # Kadikazi: Car Wash Management System
 
-### Welcome to KADIKAZI 🚗🚿
-
-Kadikazi is a cutting-edge car wash management web application built using Javascript (React) and MySQL. Kadikazi offers a seamless and secure platform for users to book appointments at the car wash and make secure payments for the services offered.
+#### Welcome to KADIKAZI 🚗🚿
+Kadikazi is a cutting-edge car wash management web application built using Javascript (React) and MySQL. In the realm of car wash management, integrating digital technologies is essential for optimizing efficiency and enhancing customer satisfaction. Kadikazi offers a seamless platform for booking appointments and making secure payments for the car wash services that have been offered. This project aims to improve operational efficiency, financial management, and customer satisfaction in car wash businesses.
 
 ### 🚀 Getting Started
 
@@ -45,7 +44,7 @@ To clone the Kadikazi repository and get the project running on your machine, fo
 
 5. **Install Dependencies**:
    ```bash
-   npm install
+   node install-dependencies.js
    ```
 
 6. **Configure MySQL**:
@@ -70,9 +69,9 @@ To clone the Kadikazi repository and get the project running on your machine, fo
   
 - **User Profiles**: Edit profile details such as picture, bio, username, or password anytime.
 
-### 🚀 Simplifying Carwash Systems
+### 🚀 Our Aim
 
-Kadikazi aims to empower entrepreneurs in this field by leveraging technology. It provides a robust platform to kickstart business ventures and reach a wider audience.
+Kadikazi aims to improve operational efficiency, financial management, and customer satisfaction in car wash businesses.
 
 ### 🔒 Security Features
 
