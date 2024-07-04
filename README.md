@@ -43,18 +43,29 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    ```
 
 5. **Install Dependencies**:
+   cd kadikazi
+   ```bash
+   node install-dependencies.js
+   ```
+   cd carWashBackEnd
    ```bash
    node install-dependencies.js
    ```
 
-6. **Configure MySQL**:
+7. **Configure MySQL**:
    - Refer to [MySQL Workbench documentation](https://dev.mysql.com/doc/workbench/en/) if you encounter any issues.
 
-7. **Run the App**:
+8. **Run the App**:
    - Ensure your environment is set up correctly, then run:
+     cd kadikazi
    ```bash
    npm start app.js
    ```
+   cd carWashBackEnd
+   ```bash
+   nodemon server.js
+   ```
+   
    Access the web application through [localhost:3000](http://localhost:3000).
 
 ---
