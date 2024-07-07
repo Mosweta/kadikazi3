@@ -22,11 +22,14 @@ import UpdateStaff from './Components/UpdateStaff';
 import EditAdmin from './Components/EditAdmin';
 import EditClient from './Components/EditClient';
 import EditProfile from './Components/EditProfile';
+
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import PasswordGuidelines from './Components/LoginRegister/PasswordGuidelines';
 
 import LockScreen from './Components/LoginRegister/Lockscreen';
 import Activation from './Components/LoginRegister/Activation';
+import ProfileTest from './Components/ProfileTest';
+import SliderTest from './Components/SliderTest';
 
 function App() {
   return (
@@ -58,6 +61,8 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/profileTest" element={<ProfileTest />} />
+          <Route path="/sliderTest" element={<SliderTest />} />
       
         </Routes>
       </Router>
