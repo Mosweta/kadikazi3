@@ -77,8 +77,10 @@ function Main() {
                     <div className="col-lg-4 col-md-12">
                         <div className="logo">
                             
+
                                 <h1 >Kadi<span>Kazi</span></h1>
                                  <img src={logo} alt="Logo"/> 
+
                             
                         </div>
                     </div>

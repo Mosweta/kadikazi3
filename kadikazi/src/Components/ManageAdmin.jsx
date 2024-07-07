@@ -147,7 +147,7 @@ const ManageAdmin = () => {
         <h2 style={{ color: "black" }}>Admin Page</h2>
         {error && <p className='text-danger'>{error}</p>}
         <div className='d-flex justify-content-end mb-3'>
-            <label htmlFor="" style={{ color: "black", fontWeight:'bold', fontSize:'10px' }}>Search:</label>
+            <label htmlFor="" style={{ color: "black", fontWeight:'bold', fontSize:'20px' }}>Search:</label>
             <input type="text" onChange={handleFilter} />
             <Link to='/createAdmin' className='btn btn-success'>Create +</Link>
         </div>

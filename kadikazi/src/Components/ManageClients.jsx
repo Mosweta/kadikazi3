@@ -50,7 +50,16 @@ const ManageClients = () => {
     useEffect(() => {
         setCurrentPageData(filteredData.slice(0, 10));
     }, [filteredData]);
-  
+    const handleDelete = (id) => {
+      axios.delete(`http://localhost:8081/deleteClient/`+id)
+      .then(() => {
+        setData(prevData => prevData.filter(client => client.clientId !== id));
+    })
+    .catch(err => {
+        setError(err.message);
+        console.log('Error deleting data:');
+    });
+};
     
     const ClientColumn = [
       {
@@ -147,7 +156,7 @@ const ManageClients = () => {
                           <td>
                             
                             <Link to={`/editClient/${client.clientId}`} className='btn btn-sm btn-primary mx-2'>Edit</Link>
-                            <button className='btn btn-sm btn-danger '>Delete</button>
+                            <button onClick={() => handleDelete(client.clientId)} className='btn btn-sm btn-danger '>Delete</button>
                           </td>
                       </tr>
                     })}
