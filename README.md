@@ -46,7 +46,7 @@ To clone the Kadikazi repository and get the project running on your machine, fo
 5. **Install Dependencies**:
   
    ```bash
-    cd kadikazi
+    cd kadikazi3
     node install-dependencies.js
    ```
    
@@ -62,7 +62,7 @@ To clone the Kadikazi repository and get the project running on your machine, fo
    - Ensure your environment is set up correctly, then run:
      
    ```bash
-   cd kadikazi
+   cd kadikazi3
    npm start app.js
    ```
    
