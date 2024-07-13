@@ -55,28 +55,28 @@ const Admin = () => {
     }
   }, [userId]);
   
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      axios.get('http://localhost:8081/logout')
-        .catch(err => console.log(err));
-    };
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     axios.get('http://localhost:8081/logout')
+  //       .catch(err => console.log(err));
+  //   };
 
-    const handlePopState = () => {
-      axios.get('http://localhost:8081/logout')
-        .then(() => {
-          navigate('/login'); // Ensure redirect to login
-        })
-        .catch(err => console.log(err));
-    };
+  //   const handlePopState = () => {
+  //     axios.get('http://localhost:8081/logout')
+  //       .then(() => {
+  //         navigate('/login'); // Ensure redirect to login
+  //       })
+  //       .catch(err => console.log(err));
+  //   };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    window.addEventListener('popstate', handlePopState);
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  //   window.addEventListener('popstate', handlePopState);
 
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [navigate]);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //     window.removeEventListener('popstate', handlePopState);
+  //   };
+  // }, [navigate]);
 
   useEffect(() => {
     let timer;
@@ -106,7 +106,7 @@ const Admin = () => {
   const handleLogout = () => {
     axios.get('http://localhost:8081/logout')
       .then(() => {
-        navigate('/login'); // Redirect to login page after logout
+        navigate('/'); // Redirect to login page after logout
       })
       .catch(err => console.log(err));
   };

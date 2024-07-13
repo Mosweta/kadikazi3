@@ -65,7 +65,7 @@ const Login = ({ navigate }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h1 style={{color:'white'}}>Login</h1>
       <div className='input-box'>
         <input
           type="email"

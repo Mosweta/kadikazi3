@@ -13,7 +13,7 @@ const EditUser = () => {
     userType: '',
     isActive: '',
     Password: '',
-    profilePhoto: null,
+   
   });
 
  const {id}=useParams();
@@ -49,8 +49,8 @@ const EditUser = () => {
             EmailAddress: userData.EmailAddress,
             userType: userData.userType,
             isActive: userData.isActive,
-            Password: userData.Password,
-            profilePhoto: userData.profilePhoto,
+            Password: userData.Password
+           
             
         
     }) 
@@ -77,9 +77,6 @@ const EditUser = () => {
     formData.append('userType', userValues.userType);
     formData.append('isActive', userValues.isActive);
     formData.append('Password', userValues.Password );
-    if (userValues.profilePhoto) {
-      formData.append('profilePhoto', userValues.profilePhoto);
-    }
 
     axios.put(`http://localhost:8081/updateUser/${id}`, formData, {
       headers: {
@@ -194,16 +191,7 @@ const EditUser = () => {
               </DropdownButton>
             )}
           </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label style={{color:'black'}}>Profile Photo</Form.Label>
-            <div className="input-group">
-              <Form.Control
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-              />
-            </div>
-          </Form.Group>
+          
           
           <Button variant="primary" type="submit" className="w-100">Submit</Button>
           {message && <Alert variant={success ? 'success' : 'danger'} className="mt-3">{message}</Alert>}

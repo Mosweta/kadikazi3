@@ -22,14 +22,21 @@ import UpdateStaff from './Components/UpdateStaff';
 import EditAdmin from './Components/EditAdmin';
 import EditClient from './Components/EditClient';
 import EditProfile from './Components/EditProfile';
+import EditBooking from './Components/EditBooking';
 
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import PasswordGuidelines from './Components/LoginRegister/PasswordGuidelines';
+import Plans from './Components/Plans';
 
 import LockScreen from './Components/LoginRegister/Lockscreen';
 import Activation from './Components/LoginRegister/Activation';
-import ProfileTest from './Components/ProfileTest';
-import SliderTest from './Components/SliderTest';
+
+import About from './Components/About';
+import Service from './Components/Service';
+import Booking from './Components/Booking';
+import ManageBookings from './Components/ManageBookings';
+import Feedback from './Components/Feedback';
+
 
 function App() {
   return (
@@ -37,16 +44,20 @@ function App() {
       <Router> 
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/about" element={<About />} />
           <Route path="/activate" element={<Activation />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin2" element={<Admin2 />} />
           <Route path="/client" element={<Client />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/createAdmin" element={<CreateAdmin />} />
           <Route path="/createClient" element={<CreateClient />} />
           <Route path="/createStaff" element={<CreateStaff />} />
           <Route path="/createUser" element={<CreateUser />} />
           <Route path="/editAdmin/:id" element={<EditAdmin />} />
           <Route path="/editClient/:id" element={<EditClient />} />
+          <Route path="/editBooking/:id" element={<EditBooking />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/editStaff/:id" element={<UpdateStaff />} />
           <Route path="/editUser/:id" element={<EditUser />} />
@@ -55,14 +66,16 @@ function App() {
           <Route path="/manageAdmins" element={<ManageAdmin />} />
           <Route path="/manageClients" element={<ManageClients />} />
           <Route path="/manageStaff" element={<ManageStaff />} />
+          <Route path="/manageBookings" element={<ManageBookings />} />
           <Route path="/password" element={<PasswordGuidelines />} />
+          <Route path="/plans" element={<Plans />} />
           <Route path="/adminProfile" element={<AdminProfile />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/staff" element={<Staff />} />
+          <Route path="/service" element={<Service />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/profileTest" element={<ProfileTest />} />
-          <Route path="/sliderTest" element={<SliderTest />} />
+          
       
         </Routes>
       </Router>

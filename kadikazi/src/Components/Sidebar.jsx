@@ -70,9 +70,9 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                </Link>
             </li>
             <li className='sidebar-list-item'>
-                <Link to={'/bookings'} >
+                <Link to={'/manageBookings'} >
                 
-                    <BsMenuButtonWideFill className='icon'/> Booking
+                    <BsMenuButtonWideFill className='icon'/> Manage Bookings
                </Link>
                 
             </li>
