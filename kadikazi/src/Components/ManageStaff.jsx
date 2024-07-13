@@ -46,6 +46,16 @@ const ManageStaff = () => {
         .then(res => setData(res.data))
         .catch(err => setError(err.message));
     }, []);
+    const handleDelete = (id) => {
+      axios.delete(`http://localhost:8081/deleteStaff/`+id)
+      .then(() => {
+        setData(prevData => prevData.filter(staff => staff.StaffId !== id));
+    })
+    .catch(err => {
+        setError(err.message);
+        console.log('Error deleting data:');
+    });
+};
     const StaffColumn = [
       
       {
@@ -132,7 +142,7 @@ const ManageStaff = () => {
                           <td>
                             
                             <Link to={`/editStaff/${staff.StaffId}`} className='btn btn-sm btn-primary mx-2'>Edit</Link>
-                            <button className='btn btn-sm btn-danger'>Delete</button>
+                            <button onClick={() => handleDelete(staff.StaffId)} className='btn btn-sm btn-danger'>Delete</button>
                           </td>
                       </tr>
                     })}

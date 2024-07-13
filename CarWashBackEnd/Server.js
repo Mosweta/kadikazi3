@@ -589,7 +589,7 @@ app.get('/readAdmin/:id', (req,res)=>{
 //   })
 // })
 app.put('/updateStaff/:id', (req,res)=>{
-  const sql="Update staff SET `fName`=?, `lName`=?, `Address`=?, `Telephone`=?, `Gender`=?, `Specialty`=?, `EmailAddress`=? WHERE StaffId=?"
+  const sql="Update staff SET `fName`=?, `lName`=?, `Address`=?, `Telephone`=?, `Gender`=?, `Specialty`=?, `EmailAddress`=? WHERE `StaffId`=?"
   const id= req.params.id;
   db.query(sql,[req.body.userId, req.body.fName, req.body.lName, req.body.Address, req.body.Telephone, req.body.Gender, req.body.Specialty, req.body.EmailAddress, id], (err,result)=>{
     if (err)return res.json({Message: "Internal Server Error"});

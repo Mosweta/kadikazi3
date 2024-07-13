@@ -51,13 +51,13 @@ const UpdateStaff = () => {
     };
 
     return (
-        <div className="d-flex vh-100 w-100 bg-primary justify-content-center align-items-center">
-            <div className="w-100 bg-white rounded p-3">
+        <div className="d-flex  justify-content-center align-items-center">
+            <div className="w-50 bg-white rounded p-3">
                 <form onSubmit={handleUpdate}>
-                    <h2>Update Staff</h2>
+                    <h2 style={{color:'black'}}>Update Staff</h2>
 
                     <div className="mb-3">
-                        <label>First Name</label>
+                        <label style={{color:'black'}}>First Name</label>
                         <input
                             type="text"
                             className="form-control"
@@ -66,7 +66,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Last Name</label>
+                        <label style={{color:'black'}}>Last Name</label>
                         <input
                             type="text"
                             className="form-control"
@@ -75,7 +75,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Physical Address</label>
+                        <label style={{color:'black'}}>Physical Address</label>
                         <input
                             type="text"
                             className="form-control"
@@ -84,7 +84,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Telephone Number</label>
+                        <label style={{color:'black'}}>Telephone Number</label>
                         <input
                             type="text"
                             className="form-control"
@@ -93,7 +93,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Gender</label>
+                        <label style={{color:'black'}}>Gender</label>
                         <input
                             type="text"
                             className="form-control"
@@ -102,7 +102,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Specialty</label>
+                        <label style={{color:'black'}}>Specialty</label>
                         <input
                             type="text"
                             className="form-control"
@@ -111,7 +111,7 @@ const UpdateStaff = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label>Email Address</label>
+                        <label style={{color:'black'}}>Email Address</label>
                         <input
                             type="text"
                             className="form-control"

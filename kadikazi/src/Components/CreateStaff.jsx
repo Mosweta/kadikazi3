@@ -43,38 +43,38 @@ const Create = () => {
     
     
   return (
-    <div className='d-flex vh-100 bg-primary justify-content-center align-items center'>
+    <div className='d-flex  justify-content-center align-items center'>
        <div className='w-200 bg-white rounded p-3'>
             <form onSubmit={handleSubmit}>
             <Link to={'/manageStaff'} style={{color:'black', textDecoration:'none',fontWeight:'bold', fontSize:'20px', marginLeft:'550px'}}>X</Link>
-                <h2>Add Staff</h2>
+                <h2 style={{color:'black'}}>Add Staff</h2>
 
                 <div class="mb-2">
-                    <label>First Name</label>
+                    <label style={{color:'black'}} >First Name</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, fName: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Last Name</label>
+                <label style={{color:'black'}}>Last Name</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, lName: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Physical Address</label>
+                <label style={{color:'black'}}>Physical Address</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, Address: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Telephone Number</label>
+                <label style={{color:'black'}}>Telephone Number</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, Telephone: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Gender</label>
+                <label style={{color:'black'}}>Gender</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, Gender: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Specialty</label>
+                <label style={{color:'black'}}>Specialty</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, Specialty: e.target.value })} class="form-control"/>
                 </div>
                 <div class="mb-3">
-                <label>Email Address</label>
+                <label style={{color:'black'}}>Email Address</label>
                     <input type="text" className="staffInputbox" onChange={(e) => setStaffvalues({ ...staffValues, EmailAddress: e.target.value })} class="form-control"/>
                 </div>
                 {message && <div className="mb-2 alert alert-info">{message}</div>}
