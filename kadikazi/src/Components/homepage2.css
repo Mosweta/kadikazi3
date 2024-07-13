@@ -1,0 +1,93 @@
+.banner {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .navbar img.user-pic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar ul li {
+    margin: 0 10px;
+  }
+  
+  .navbar ul li a, .navbar ul li button {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #555;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .navbar ul li button {
+    background-color: #ff4444;
+  }
+  
+  .navbar ul li a:hover, .navbar ul li button:hover {
+    background-color: #666;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #575757;
+  }
+  
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+  }
+  

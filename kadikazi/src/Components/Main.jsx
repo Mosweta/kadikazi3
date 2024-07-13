@@ -36,7 +36,7 @@ function Main() {
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/`)
+        axios.get(`http://localhost:8081/`)
             .then(res => {
                 if (res.data.Status === "Success") {
                     setAuth(true);
@@ -53,13 +53,7 @@ function Main() {
             });
     }, []);
 
-    const handleDelete = () => {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/logout`)
-            .then(() => {
-                window.location.reload(true);
-            })
-            .catch(err => console.log(err));
-    };
+   
 
     return (
         <div className='home'>
@@ -138,7 +132,7 @@ function Main() {
                             <a href="/about" className="nav-item nav-link">About</a>
                             <a href="/service" className="nav-item nav-link">Service</a>
         
-                            <a href="/contact" className="nav-item nav-link">Contact</a>
+                            <a href="/plans" className="nav-item nav-link">Plans</a>
                         </div>
                         <div className="ml-auto">
                             <a className="btn btn-custom" href="/login">Login</a>

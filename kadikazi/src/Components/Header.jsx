@@ -4,6 +4,7 @@ import axios from 'axios';
 import 
  {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify}
  from 'react-icons/bs';
+ import {FaPowerOff } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 import logo from './Assets/images/logo.png';
 import profile from './Assets/images/profile.png';
@@ -17,6 +18,11 @@ function Header({OpenSidebar}) {
   const [userValues, setUserValues] = useState();
   const [photo, setPhoto] = useState();
   const [message, setMessage] = useState('');
+  const [adminValues, setAdminValues] = useState({
+    userId: '',
+    fName: '',
+    lName: '',
+  });
   const navigate= useNavigate();
   const subMenuRef = useRef(null);
   axios.defaults.withCredentials = true;
@@ -63,6 +69,31 @@ function Header({OpenSidebar}) {
         });
     }
   }, [userId]);
+  useEffect(() => {
+    if (userId) {
+      axios.post('http://localhost:8081/readAdminProfile', { userId })
+        .then(res => {
+          const adminData = res.data[0];
+          setAdminValues({
+            userId: adminData.userId,
+            AdminId:adminData.AdminId,
+            fName: adminData.fName,
+            lName: adminData.lName,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          setMessage('Failed to fetch admin details');
+        });
+    }
+  }, [userId]);
+  const handleLogout = () => {
+    axios.get('http://localhost:8081/logout')
+      .then(() => {
+        navigate('/'); // Redirect to login page after logout
+      })
+      .catch(err => console.log(err));
+  };
   
   return (
     <header className='header'>
@@ -71,15 +102,17 @@ function Header({OpenSidebar}) {
         </div>
         
         <div className='header-left'>
-            <BsSearch  className='icon'/>
+            <BsSearch  className='icon' onClick={handleLogout}/>
             
         </div>
+        <FaPowerOff className='icon'/>
         <div className='header-right'>
           
             <BsFillBellFill className='icon'/>
             <BsFillEnvelopeFill className='icon'/>
             
-            Welcome {userValues?.Name}
+            
+            {adminValues?.fName}{adminValues?.lName}
             <img src={userValues?.profilePhoto} alt="user" className='user-pic' onClick={toggleMenu} />
             <div className="navbar">
         

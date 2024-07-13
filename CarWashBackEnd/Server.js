@@ -1,6 +1,7 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+import axios from "axios";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import cookieParser from "cookie-parser";
@@ -123,8 +124,8 @@ app.get('/',verifyUser,(req,res)=>{
       return res.json({valid:false})
     }
       })
-      app.get('/home',verifyUser,(req,res)=>{
-        const token = req.session.token;
+      app.get('/home',(req,res)=>{
+        
         if(req.session.userId)
           {
           return res.json({Status: "Success", valid:true, userName: req.session.Name, userId: req.session.userId, EmailAddress: req.session.EmailAddress, userType: req.session.userType, profilePhoto: req.session.profilePhoto }) 
@@ -525,6 +526,15 @@ app.get('/readStaff/:id', verifyUser, (req,res)=>{
     
   })
 })
+app.get('/readBooking/:id', (req,res)=>{
+  const sql="SELECT * FROM booking WHERE BookingId=?"
+  const id= req.params.id;
+  db.query(sql,[id], (err,result)=>{
+    if (err)return res.json({Message: "Internal Server Error"});
+    return res.json(result);
+    
+  })
+})
 app.get('/readUser/:id', (req,res)=>{
   const sql="SELECT * FROM users WHERE userId=?"
   const id= req.params.id;
@@ -901,6 +911,14 @@ app.get('/getAllAdmins', (req, res) =>{
       return res.json(result);
   })
 })
+app.get('/getAllBookings', (req, res) =>{
+  const sql = `SELECT * FROM booking`;
+  
+  db.query(sql,(err, result) =>{
+      if(err) return res.json({Message:"Error connecting to the database"});
+      return res.json(result);
+  })
+})
 
 app.put('/updateProfile', upload.single('profilePhoto'), (req, res) => {
   const { Name, EmailAddress, userId } = req.body;
@@ -951,6 +969,45 @@ app.delete('/deleteAdmin/:id', (req, res) => {
       res.status(200).json({success:'user record deleted successfully'});
     } else{
 console.log(err);
+    };
+  });
+ 
+});
+app.delete('/deleteBooking/:id', (req, res) => {
+  
+  db.query("DELETE FROM booking WHERE BookingId ='"+req.params.id+"'",(err, result)=>{
+    if(!err)
+      {
+      res.status(200).json({success:'Booking record deleted successfully'});
+    } else{
+console.log(result);
+    };
+  });
+ 
+});
+app.put('/updateBooking/:id', (req, res) => {
+const Status=req.body.Status
+console.log(Status);
+  const sql="UPDATE booking SET Status = ? WHERE BookingId ='"+req.params.id+"'";
+  db.query(sql,[Status],(err, result)=>{
+    if(!err)
+      {
+      res.status(200).json({success:'Booking status update successful'});
+    } else{
+console.log(err);
+    };
+  });
+ 
+});
+app.put('/rejectBooking/:id', (req, res) => {
+  const sql ="DELETE FROM booking WHERE BookingId ='"+req.params.id+"'";
+  const Status= 'Rejected';
+  db.query(sql, Status,(err, result)=>{
+    if(!err)
+      {
+      res.status(200).json({success:'Booking record deleted successfully'});
+    } else{
+console.log(result);
     };
   });
  
@@ -1016,8 +1073,9 @@ app.get('/totalInactiveUsers', (req, res) => {
   });
 });
 app.get('/newBookings', (req, res) => {
-  const sql = "SELECT COUNT(BookingId) AS newBookings FROM booking where Status = 'Pending'"; // Assuming 'users' is your table name
-  db.query(sql, (err, result) => {
+  const Status = 'Pending..';
+  const sql = "SELECT COUNT(BookingId) AS newBookings FROM booking where Status = ?"; // Assuming 'users' is your table name
+  db.query(sql,[Status], (err, result) => {
     if (err) {
       return res.json({ message: 'Internal Server Error' });
     }
@@ -1058,8 +1116,107 @@ app.get('/totalPayments', (req, res) => {
       return res.json({ totalWashes });
     });
   });;
+  app.post('/book', (req, res) => {
+    const { name, service_offered, userId, phone_number, date, time } = req.body;
+    console.log(userId);
+    console.log(name);
+    console.log(service_offered);
+    console.log(phone_number);
+    const Status = 'Pending..';
 
+    const query = 'INSERT INTO booking (`Name`, `Telephone`, `WashType`, `client_Id`, `Status`, `Date`, `Time`) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(query, [name, phone_number, service_offered, userId, Status, date, time], (err, result) => {
+        if (err) {
+            return res.json({ Error: err.message });
+        } else {
+            return res.json({ Status: 'Success' });
+        }
+    });
+});
+app.post("/stk/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
 
-
-   
+  const sql = "SELECT * FROM booking WHERE BookingId = ?";
+  db.query(sql, [id], async (err, result) => {
+    if (err) {
+      return res.json({ Error: err.message });
+    }
     
+    if (result.length === 0) {
+      return res.status(404).json({ Error: 'Booking not found' });
+    }
+
+    const details = result[0];
+    console.log(details.Name);
+
+  const secretKey = "sk_live_8ed717746b054d108f3b1edb20e89d5053bcfdbe";
+  let reference;
+
+  //your own object
+  const metadata = {
+    Name: details.Name,
+    PhoneNumber: details.Telephone,
+    Plan: details.WashType,
+    userId:details.client_Id,
+    Booking:details.BookingId
+  
+  };
+
+  const data = {
+    amount: 2000,
+    email: "customer@email.com",
+    currency: "KES",
+    mobile_money: {
+      phone: `+254${details.Telephone}`,
+      provider: "mpesa",
+    },
+  };
+
+  const config = {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer sk_live_8ed717746b054d108f3b1edb20e89d5053bcfdbe`,
+    },
+  };
+
+  axios
+    .post("https://api.paystack.co/charge", data, config)
+    .then((response) => {
+      reference = response.data.data.reference; // Corrected path to reference
+      console.log(response.data)
+      setTimeout(verifyTransaction, 15000); // Delaying the verification to ensure transaction processing
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.error("Error Response:", error.response.data);
+      } else {
+        console.error("Error Message:", error.message);
+      }
+    });
+
+  async function verifyTransaction() {
+    console.log("verifying transaction");
+    try {
+      const response = await axios.get(
+       ` https://api.paystack.co/transaction/verify/${reference}`,
+        {
+          headers: {
+            Authorization: `Bearer ${secretKey}`,
+          },
+        }
+      );
+
+      if (response.data.status) {
+        console.log(response.data)
+      }else{
+        console.log(response.data)
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
+return res.json({ Status: 'Success' });
+})

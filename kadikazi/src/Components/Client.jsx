@@ -1,121 +1,142 @@
-import React ,{ useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import Header2 from './Header2'
+import Sidebar2 from './Sidebar2'
 import axios from 'axios';
-import { Link, useNavigate,useParams } from 'react-router-dom';
-import logo from './Images/Logo.png';
-import { useAuth } from './AuthContext';
-import './homepage.css';
-import { useState } from 'react';
-const Client = () => {
-  
+import './MyHome.css'
 
-  const { auth, userType, Email, login, logout } = useAuth();
-  const[Id, setId]= useState('')
-  const navigate = useNavigate();
-  useEffect(() => {
-      axios.get('http://localhost:8081')
-          .then(res => {
-              if (res.data.Status === "Success") {
-                  login(res.data.Email);
-                  setId(res.data.userId)
-              } else {
-                  logout();
-              }
-          })
-          .catch(err => console.log(err));
-  }, [login, logout]);
+function Client() {
+  const [totalUsers, setTotalUsers] = useState(null);
+  const [totalActiveUsers, setTotalActiveUsers] = useState(null);
+  const [totalInactiveUsers, setTotalInactiveUsers] = useState(null);
+  const [staffData, setStaffData] = useState([]);
+  const [adminData, setAdminData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [clientData, setClientData] = useState([]);
+  const [totalAdmins, setTotalAdmins] = useState(null);
+  const [totalClients, setTotalClients] = useState(null);
+  const [totalStaff, setTotalStaff] = useState(null);
+  const [newBookings, setNewBookings] = useState(null);
+  const [totalAmount, setTotalAmount] = useState(null);
+  const [totalCars, setTotalCars] = useState(null);
+  const [totalWashes, setTotalWashes] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [openMenu, setOpenMenu] = useState(null);
 
   useEffect(() => {
-    const handleBeforeUnload = () => {
-      axios.get('http://localhost:8081/logout')
-        .then(() => {
-          logout();
-        })
-        .catch(err => console.log(err));
+    const fetchData = async () => {
+      try {
+        const [
+          adminResponse,
+          clientResponse,
+          staffResponse,
+          userResponse,
+          totalUsersResponse,
+          totalActiveUsersResponse,
+          totalInactiveUsersResponse,
+          totalAdminsResponse,
+          totalClientsResponse,
+          totalStaffResponse,
+          newBookingsResponse,
+          totalAmountResponse,
+          totalCarsResponse,
+          totalWashesResponse
+        ] = await Promise.all([
+          axios.get('http://localhost:8081/getAllAdmins'),
+          axios.get('http://localhost:8081/getAllClients'),
+          axios.get('http://localhost:8081/getAllStaff'),
+          axios.get('http://localhost:8081/getAllUsers'),
+          axios.get('http://localhost:8081/totalUsers'),
+          axios.get('http://localhost:8081/totalActiveUsers'),
+          axios.get('http://localhost:8081/totalInactiveUsers'),
+          axios.get('http://localhost:8081/totalAdmins'),
+          axios.get('http://localhost:8081/totalClients'),
+          axios.get('http://localhost:8081/totalStaff'),
+          axios.get('http://localhost:8081/newBookings'),
+          axios.get('http://localhost:8081/totalPayments'),
+          axios.get('http://localhost:8081/totalCars'),
+          axios.get('http://localhost:8081/totalWashes'),
+        ]);
+
+        setAdminData(adminResponse.data);
+        setClientData(clientResponse.data);
+        setStaffData(staffResponse.data);
+        setUserData(userResponse.data);
+        setTotalUsers(totalUsersResponse.data.totalUsers);
+        setTotalActiveUsers(totalActiveUsersResponse.data.totalActiveUsers);
+        setTotalInactiveUsers(totalInactiveUsersResponse.data.totalInactiveUsers);
+        setTotalAdmins(totalAdminsResponse.data.totalAdmins);
+        setTotalClients(totalClientsResponse.data.totalClients);
+        setTotalStaff(totalStaffResponse.data.totalStaff);
+        setNewBookings(newBookingsResponse.data.newBookings);
+        setTotalAmount(totalAmountResponse.data.totalAmount);
+        setTotalCars(totalCarsResponse.data.totalCars);
+        setTotalWashes(totalWashesResponse.data.totalWashes);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
     };
 
-    const handlePopState = () => {
-      axios.get('http://localhost:8081/logout')
-        .then(() => {
-          logout();
-          navigate('/login'); // Ensure redirect to login
-        })
-        .catch(err => console.log(err));
-    };
+    fetchData();
+  }, []);
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    window.addEventListener('popstate', handlePopState);
+  const AdminColumn = [
+    { name: 'ID', selector: row => row.adminId, sortable: true },
+    { name: 'First Name', selector: row => row.fName, sortable: true },
+    { name: 'Last Name', selector: row => row.lName, sortable: true },
+    { name: 'Telephone', selector: row => row.Telephone, sortable: true },
+    { name: 'Gender', selector: row => row.Gender, sortable: true },
+    { name: 'Email Address', selector: row => row.EmailAddress, sortable: true },
+  ];
 
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, [logout, navigate]);
+  const StaffColumn = [
+    { name: 'ID', selector: row => row.staffId, sortable: true },
+    { name: 'First Name', selector: row => row.fName, sortable: true },
+    { name: 'Last Name', selector: row => row.lName, sortable: true },
+    { name: 'Address', selector: row => row.Address, sortable: true },
+    { name: 'Telephone', selector: row => row.Telephone, sortable: true },
+    { name: 'Gender', selector: row => row.Gender, sortable: true },
+    { name: 'Email Address', selector: row => row.EmailAddress, sortable: true },
+  ];
 
-  useEffect(() => {
-    let tim;
-    const reload = () => {
-      tim = setTimeout(() => {
-        navigate('/lockscreen');
-      }, 300000); // 5 minutes
-    };
+  const UsersColumn = [
+    { name: 'ID', selector: row => row.userId, sortable: true },
+    { name: 'Name', selector: row => row.Name, sortable: true },
+    { name: 'Email Address', selector: row => row.EmailAddress, sortable: true },
+    { name: 'User Type', selector: row => row.userType, sortable: true },
+  ];
 
-    const canceltimer = () => {
-      clearTimeout(tim);
-      reload();
-    };
+  const ClientColumn = [
+    { name: 'ID', selector: row => row.clientId, sortable: true },
+    { name: 'First Name', selector: row => row.client_fName, sortable: true },
+    { name: 'Last Name', selector: row => row.client_lName, sortable: true },
+    { name: 'Address', selector: row => row.client_pAddress, sortable: true },
+    { name: 'Telephone', selector: row => row.client_telephoneNo, sortable: true },
+    { name: 'Gender', selector: row => row.client_gender, sortable: true },
+    { name: 'Email Address', selector: row => row.client_emailAddress, sortable: true },
+    { name: 'CarRegNo', selector: row => row.carRegistrationNo, sortable: true },
+  ];
 
-    reload();
-
-    window.addEventListener('mousemove', canceltimer);
-    window.addEventListener('click', canceltimer);
-
-    return () => {
-      clearTimeout(tim);
-      window.removeEventListener('mousemove', canceltimer);
-      window.removeEventListener('click', canceltimer);
-    };
-  }, [navigate]);
-
-
-  const handleLogout = () => {
-      axios.get('http://localhost:8081/logout')
-          .then(res => {
-              logout();
-              navigate('/login'); // Redirect to login page after logout
-          })
-          .catch(err => console.log(err));
+  const toggleMenu = (menu) => {
+    setOpenMenu(openMenu === menu ? null : menu);
   };
-  return (
-    <div className='banner'>
-      <div className="navbar">
-        <img src={logo} alt="Logo" />
-        <h2 style={{ color: 'aliceblue' }}>KADI KAZI</h2>
-        <ul>
-          <li><Link to="about.html">About</Link></li>
-          <li><Link to="ContactUs.html">Contact Us</Link></li>
-          <li><Link to="http://localhost:3000/Lockscreen">Lockscreen</Link></li>
-          <li><Link to="http://localhost:3000/edit-user/:id">Edit User</Link></li>
 
-          <li><button className='button' onClick={handleLogout}>Logout</button></li>
-        </ul>
-      </div>
-      <div className="sidebar">
-      <h2>Dashboard</h2>
-      <ul>
-        {/* <li><img src={profilePic} alt="Profile Picture" className="profile-pic" /></li> */}
-        <li><a href={`/editUser/${Id}`}>Edit Profile</a></li>
-        <li><a href="/users">Manage Users</a></li>
-        <li><a href="/manageClients">Manage Clients</a></li>
-        <li><a href="/manageStaff">Manage Staff</a></li>
-        <li><a href="/manageAdmins">Manage Admins</a></li>
-        <li><a href="/register-car">Register Car</a></li>
-        <li><a href="/view-payments">View Payments</a></li>
-        <li><a href="/manage-bookings">Manage Bookings</a></li>
-      </ul>
-    </div>
-      <h1>Welcome Client</h1>
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  const data = [
+    { name: "Geeksforgeeks", students: 400 },
+    { name: "Technical scripter", students: 700 },
+    
+];
+  return (
+   <div className='grid-container'>
+    <Header2/>
+    <Sidebar2/>
     </div>
   );
 }
 
 export default Client;
+
